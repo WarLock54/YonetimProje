@@ -59,15 +59,12 @@ namespace ProjeOdev.Controllers
             SoruManager.Ekle(val);
             return RedirectToAction("Index");
         }
-        public ActionResult GetKoop([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
+        public ActionResult GetSoru([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
         {
-            // Yeni bir MobilKoopViewModel eklendi...
+            
            
             var originalData = SoruManager.GetSoru(requestModel, out var totalCount, out var filteredCount);
-            //foreach (var item in originalData.ToList())
-            //{
-            //    data.Add(new MobilKoopViewModel(item));
-            //}
+           
             var data2 = originalData.Select(asset => new
             {
                Id=asset.Id,

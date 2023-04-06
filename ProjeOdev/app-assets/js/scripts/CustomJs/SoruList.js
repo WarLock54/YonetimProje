@@ -7,19 +7,17 @@ $(function () {
                 "processing": true,
                 "serverSide": true,
                 "ajax": {
-                    url: '/MobilKullanici/GetKoop',
+                    url: '/AdminSoruPaneli/GetSoru',
 
                 },
                 "columns": [
                     { "title": "Id", "data": "Id" },
                     { "title": "SoruAciklamasi", "data": "SoruAciklamasi", searchable: true },
-             
-
                     {
                         "title": "Eylemler",
                         "render": function (data, type, row) {
                             const inner = `<a href="javascript:void(0);" class="on-default edit-row" title="Düzenle"><i class="fa fa-pencil"></i></a>
-                                        <a href="/AdminSoruPaneli/KoopSil?id=${row.Id}" class="delete-btn" title="Sil" data-id="${row.Id}"><i class="fa fa-trash-o"></i> </a
+                                        <a href="/AdminSoruPaneli/SoruSil?id=${row.Id}" class="delete-btn" title="Sil" data-id="${row.Id}"><i class="fa fa-trash-o"></i> </a
 `;
                             return inner;
                         }
@@ -75,7 +73,7 @@ $('#datatable').on('click', '.delete-btn', function () {
         }
     }).then((isConfirm) => {
         if (isConfirm) {
-            window.location.href = `/MobilKullanici/KoopSil?id=${userid}`;
+            window.location.href = `/AdminSoruPaneli/SoruSil?id=${row.Id}`;
         }
         else {
             window.swal("İptal", "Veri güvende", "info");
