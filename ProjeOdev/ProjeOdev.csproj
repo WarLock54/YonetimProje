@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>4.3</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1972,6 +1974,13 @@
     <Content Include="app-assets\vendors\js\ui\screenfull.min.js" />
     <Content Include="app-assets\vendors\js\ui\unison.min.js" />
     <Content Include="app-assets\vendors\js\vendors.min.js" />
+    <Content Include="assets\css\Exdatatable.css" />
+    <Content Include="assets\css\fontmontserrat.css" />
+    <Content Include="assets\css\Galeri.css" />
+    <Content Include="assets\css\style-rtl.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\tinymce.css" />
+    <Content Include="assets\js\scripts.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1982,6 +1991,240 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\Scripts\bootstrap.js" />
+    <Content Include="Scripts\Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\Scripts\esm\popper.js" />
+    <Content Include="Scripts\Scripts\esm\popper.min.js" />
+    <None Include="Scripts\Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\Scripts\jquery-3.6.0.slim.min.js" />
+    <None Include="Scripts\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Scripts\jquery.validate.js" />
+    <Content Include="Scripts\Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Scripts\popper-utils.js" />
+    <Content Include="Scripts\Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\Scripts\popper.js" />
+    <Content Include="Scripts\Scripts\popper.min.js" />
+    <Content Include="Scripts\Scripts\src\index.js" />
+    <Content Include="Scripts\Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\Scripts\src\methods\update.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\Scripts\src\utils\find.js" />
+    <Content Include="Scripts\Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\Scripts\src\utils\index.js" />
+    <Content Include="Scripts\Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\Scripts\tinymce\jquery.tinymce.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\langs\tr.js" />
+    <Content Include="Scripts\Scripts\tinymce\license.txt" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\bbcode\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\codesample\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\code\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\colorpicker\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\css\dialog.css" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\img\buttons.png" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\img\icons.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\img\items.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\img\menu_arrow.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\img\menu_check.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\img\progress.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\img\tabs.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\tiny_mce_popup.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\utils\editable_selects.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\utils\form_utils.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\utils\mctabs.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\compat3x\utils\validate.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\contextmenu\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\fullpage\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\help\img\logo.png" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\help\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\hr\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\imagetools\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\image\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\legacyoutput\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\link\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\lists\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\media\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\noneditable\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\paste\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\preview\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\print\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\save\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\spellchecker\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\tabfocus\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\table\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\template\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\textcolor\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\textpattern\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\toc\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="Scripts\Scripts\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\content.mobile.min.css" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\skin.mobile.min.css" />
+    <Content Include="Scripts\Scripts\tinymce\themes\inlite\theme.js" />
+    <Content Include="Scripts\Scripts\tinymce\themes\inlite\theme.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\themes\mobile\theme.js" />
+    <Content Include="Scripts\Scripts\tinymce\themes\mobile\theme.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\themes\modern\theme.js" />
+    <Content Include="Scripts\Scripts\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Scripts\Scripts\tinymce\tinymce.js" />
+    <Content Include="Scripts\Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Scripts\Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\Scripts\umd\popper.js" />
+    <Content Include="Scripts\Scripts\umd\popper.min.js" />
     <Content Include="Yonetim\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -2369,6 +2612,13 @@
     <Content Include="app-assets\vendors\js\.DS_Store" />
     <Content Include="app-assets\vendors\js\tables\.DS_Store" />
     <Content Include="app-assets\vendors\js\tables\jsgrid\.DS_Store" />
+    <Content Include="assets\.DS_Store" />
+    <Content Include="assets\scss\.DS_Store" />
+    <Content Include="assets\scss\colors\palette-variables.scss" />
+    <Content Include="assets\scss\style-rtl.scss" />
+    <Content Include="assets\scss\style.scss" />
+    <Content Include="assets\scss\variables\components-variables.scss" />
+    <Content Include="assets\scss\variables\variables.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2402,6 +2652,40 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Views\AdminSoruPaneli\Index.cshtml" />
+    <Content Include="Scripts\Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\Scripts\index.js.flow" />
+    <Content Include="Scripts\Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Scripts\Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\Scripts\popper.js.map" />
+    <Content Include="Scripts\Scripts\popper.min.js.map" />
+    <Content Include="Scripts\Scripts\README.md" />
+    <Content Include="Scripts\Scripts\tinymce\langs\readme.md" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\skin.min.css.map" />
+    <Content Include="Scripts\Scripts\tinymce\skins\lightgray\skin.mobile.min.css.map" />
+    <Content Include="Scripts\Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\Scripts\umd\popper.min.js.map" />
+    <Content Include="Views\AdminSoruPaneli\GetirList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app-assets\Upload\Fotograf\" />
@@ -2421,13 +2705,18 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Scripts\index.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

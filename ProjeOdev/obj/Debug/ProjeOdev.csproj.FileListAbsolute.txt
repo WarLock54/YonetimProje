@@ -179,3 +179,4 @@ C:\Users\onr_5\source\repos\ProjeOdev\YonetimProje\ProjeOdev\obj\Debug\ProjeOdev
 C:\Users\onr_5\source\repos\ProjeOdev\YonetimProje\ProjeOdev\obj\Debug\ProjeOdev.csproj.CopyComplete
 C:\Users\onr_5\source\repos\ProjeOdev\YonetimProje\ProjeOdev\obj\Debug\ProjeOdev.dll
 C:\Users\onr_5\source\repos\ProjeOdev\YonetimProje\ProjeOdev\obj\Debug\ProjeOdev.pdb
+C:\Users\onr_5\source\repos\ProjeOdev\YonetimProje\ProjeOdev\obj\Debug\ProjeOdev.csproj.AssemblyReference.cache

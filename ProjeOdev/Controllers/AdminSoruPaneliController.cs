@@ -17,6 +17,10 @@ namespace ProjeOdev.Controllers
         {
             return View();
         }
+        public ActionResult GetirList()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult Guncelle(int? id)
         {
