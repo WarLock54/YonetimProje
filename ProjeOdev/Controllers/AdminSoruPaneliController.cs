@@ -15,7 +15,8 @@ namespace ProjeOdev.Controllers
         Entities db = new Entities();
         public ActionResult Index()
         {
-            return View();
+            var val = db.AdminLogs.ToList();
+            return View(val);
         }
         public ActionResult GetirList()
         {

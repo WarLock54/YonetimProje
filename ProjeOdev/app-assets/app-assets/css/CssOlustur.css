@@ -1,9 +1,0 @@
-﻿.select2-container {
-    font-size: 11px;
-    max-width: 336px;
-}
-
-.select2-container--default .select2-selection--multiple .select2-selection__rendered {
-    max-height: 50px;
-    overflow-y: auto;
-}
