@@ -10,16 +10,36 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Galeri">
+      <EntityTypeMapping TypeName="YonetimModel.Galeri">
+        <MappingFragment StoreEntitySet="Galeri">
+          <ScalarProperty Name="Galeritur" ColumnName="Galeritur" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="CoverUrl" ColumnName="CoverUrl" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Sil" ColumnName="Sil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Sorular">
       <EntityTypeMapping TypeName="YonetimModel.Sorular">
         <MappingFragment StoreEntitySet="Sorular">
-          <ScalarProperty Name="Sil" ColumnName="Sil" />
-          <ScalarProperty Name="Resim" ColumnName="Resim" />
-          <ScalarProperty Name="D" ColumnName="D" />
-          <ScalarProperty Name="C" ColumnName="C" />
-          <ScalarProperty Name="B" ColumnName="B" />
-          <ScalarProperty Name="A" ColumnName="A" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SoruAciklamasi" ColumnName="SoruAciklamasi" />
+          <ScalarProperty Name="A" ColumnName="A" />
+          <ScalarProperty Name="B" ColumnName="B" />
+          <ScalarProperty Name="C" ColumnName="C" />
+          <ScalarProperty Name="D" ColumnName="D" />
+          <ScalarProperty Name="Sil" ColumnName="Sil" />
+          <ScalarProperty Name="galeri" ColumnName="galeri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GaleriTur">
+      <EntityTypeMapping TypeName="YonetimModel.GaleriTur">
+        <MappingFragment StoreEntitySet="GaleriTur">
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

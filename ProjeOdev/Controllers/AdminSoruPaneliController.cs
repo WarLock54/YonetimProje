@@ -35,8 +35,9 @@ namespace ProjeOdev.Controllers
             val.SoruAciklamasi = soru.SoruAciklamasi;
             val.A = soru.A;
             val.B = soru.B;
-            val.C= soru.C;
+            val.C = soru.C;
             val.D = soru.D;
+            val.Sil = soru.Sil;
             db.SaveChanges();
             return View();
         }
@@ -57,27 +58,27 @@ namespace ProjeOdev.Controllers
             Sil = Convert.ToBoolean(data["Sil"]);
             //buraya fotoğraf mp4 video özellikleri eklenecek...
             var val = SoruManager.SoruEkle(SoruAciklamasi, A, B, C, D, Sil);
-                 if(!ModelState.IsValid){
+            if (!ModelState.IsValid) {
                 ViewBag.Err = "Bilgilerinizi doğru giriniz..";
                 return View("SoruEkle");
-        }
+            }
             SoruManager.Ekle(val);
             return RedirectToAction("Index");
         }
         public ActionResult GetSoru([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
         {
-            
-           
             var originalData = SoruManager.GetSoru(requestModel, out var totalCount, out var filteredCount);
-           
             var data2 = originalData.Select(asset => new
             {
-               Id=asset.Id,
-               SoruAciklamasi=asset.SoruAciklamasi
+                SıraNo = asset.Id,
+                Soru = asset.SoruAciklamasi,
             }).ToList();
 
             return Json(new DataTablesResponse(requestModel.Draw, data2, filteredCount, totalCount), JsonRequestBehavior.AllowGet);
         }
+
+        
+
     }
 }
 

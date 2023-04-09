@@ -4,9 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9a7de448dbd14931862874e8df9945a3" Name="Diagram1">
-        <EntityTypeShape EntityType="YonetimModel.AdminLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YonetimModel.Sorular" Width="1.5" PointX="3.375" PointY="0.75" />
+      <Diagram DiagramId="6d66a73c79134ce793fed13f1364c8b1" Name="Diagram1">
+        <EntityTypeShape EntityType="YonetimModel.AdminLog" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YonetimModel.Galeri" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YonetimModel.Sorular" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="YonetimModel.FK_Sorular_Galeri" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="YonetimModel.GaleriTur" Width="1.5" PointX="0.75" PointY="7.75" />
+        <AssociationConnector Association="YonetimModel.FK_Galeri_GaleriTur" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
