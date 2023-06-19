@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="YonetimModelStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="SoruYonetimModelStoreContainer" CdmEntityContainer="Entities">
     <EntitySetMapping Name="AdminLog">
-      <EntityTypeMapping TypeName="YonetimModel.AdminLog">
+      <EntityTypeMapping TypeName="SoruYonetimModel.AdminLog">
         <MappingFragment StoreEntitySet="AdminLog">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Mail" ColumnName="Mail" />
@@ -11,19 +11,26 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Galeri">
-      <EntityTypeMapping TypeName="YonetimModel.Galeri">
+      <EntityTypeMapping TypeName="SoruYonetimModel.Galeri">
         <MappingFragment StoreEntitySet="Galeri">
-          <ScalarProperty Name="Galeritur" ColumnName="Galeritur" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
-          <ScalarProperty Name="CoverUrl" ColumnName="CoverUrl" />
           <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
           <ScalarProperty Name="Sil" ColumnName="Sil" />
+          <ScalarProperty Name="GaleriTur" ColumnName="GaleriTur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GaleriTur">
+      <EntityTypeMapping TypeName="SoruYonetimModel.GaleriTur">
+        <MappingFragment StoreEntitySet="GaleriTur">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sorular">
-      <EntityTypeMapping TypeName="YonetimModel.Sorular">
+      <EntityTypeMapping TypeName="SoruYonetimModel.Sorular">
         <MappingFragment StoreEntitySet="Sorular">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SoruAciklamasi" ColumnName="SoruAciklamasi" />
@@ -32,15 +39,7 @@
           <ScalarProperty Name="C" ColumnName="C" />
           <ScalarProperty Name="D" ColumnName="D" />
           <ScalarProperty Name="Sil" ColumnName="Sil" />
-          <ScalarProperty Name="galeri" ColumnName="galeri" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GaleriTur">
-      <EntityTypeMapping TypeName="YonetimModel.GaleriTur">
-        <MappingFragment StoreEntitySet="GaleriTur">
-          <ScalarProperty Name="Ad" ColumnName="Ad" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Galeri" ColumnName="Galeri" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

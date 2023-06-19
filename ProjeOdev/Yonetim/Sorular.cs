@@ -21,7 +21,7 @@ namespace ProjeOdev.Yonetim
         public string C { get; set; }
         public string D { get; set; }
         public Nullable<bool> Sil { get; set; }
-        public Nullable<int> galeri { get; set; }
+        public Nullable<int> Galeri { get; set; }
     
         public virtual Galeri Galeri1 { get; set; }
     }

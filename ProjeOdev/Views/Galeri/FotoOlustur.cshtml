@@ -1,0 +1,121 @@
+﻿@model ProjeOdev.Yonetim.Galeri
+
+@{
+    Layout = null;
+}
+
+<link href="~/app-assets/css/plugins/forms/validation/form-validation.min.css" rel="stylesheet" />
+<link href="~/app-assets/css/plugins/forms/extended/form-extended.min.css" rel="stylesheet" />
+<link href="~/app-assets/css/CssOlustur.css" rel="stylesheet" />
+
+<!-- Horizontal navigation-->
+<div class="app-content container center-layout mt-2">
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-6 col-12 mb-2">
+                <h3 class="content-header-title mb-0">Galeri</h3>
+                <div class="row breadcrumbs-top">
+                    <div class="breadcrumb-wrapper col-12">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="@Url.Action("Index","AdminSoruPaneli")">Anasayfa</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="#">Galeri</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                Fotoğraf Oluştur
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <!-- Basic Elements start -->
+            <section class="basic-elements">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <h4 class="card-title">Fotoğraf Oluştur</h4>
+                                    <form id="Olustur-Form" action="FotoOlustur" method="post" enctype="multipart/form-data">
+                                        <div class="card-header">
+                                            <div class="heading-elements">
+                                                <ul class="list-inline mb-0">
+                                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                                    <li><a onclick="window.location.href = '/Galeri/FotoList'"><i class="ft-list"></i></a></li>
+                                                    <li><a href="/Galeri/FotoGaleri"><i style="color:#36d6c0;" class="ft-image"></i></a></li>
+                                                    <li><button style="background-color:transparent; border-color:transparent; color:#e03131;" name="submit"><i class="ft-check-circle"></i></button></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        @Html.HiddenFor(s => s.Id)
+                                        @Html.HiddenFor(s => s.PicUrl)
+                                        <div class="row">
+                                            @if (Model != null)
+                                            {
+                                                <div class="col-xl-12 col-lg-12 col-md-12 mb-1" style="margin-top:-45px;" align="center">
+                                                    @if (Model.PicUrl != null)
+                                                    {
+                                                        if (Model.Galeritur == 2)
+                                                        {
+                                                            <video controls="" autoplay="" name="media" style="width:20%;"><source src="@Model.PicUrl" style="border-radius: 50%; border: 1px solid black;width:100px" type="video/mp4" /></video>
+                                                        }
+                                                        else if (Model.Galeritur == 1)
+                                                        {
+                                                            <img src="@Model.PicUrl" style="border-radius: 50%; border: 1px solid black;width:100px; height:100px;" alt="" />
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/app-assets/images/fotoyok.jpg" style="border-radius: 50%; border: 1px solid black;width:100px" alt="" />
+                                                    }
+                                                </div>
+                                            }
+                                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                                <fieldset class="form-group">
+                                                    <label>Galeri Tür</label>
+                                                    @Html.DropDownListFor(s => s.Galeritur, (SelectList)ViewBag.turs, " -Seçiniz- ", new { @class = "form-control disabled", required = "required", @readonly = "readonly" })
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-6 col-md-12 mb-2">
+                                                <fieldset class="form-group">
+                                                    <span class="danger">*</span>
+                                                    <label>
+                                                        Fotoğraf Yükle
+                                                        <span class="danger">*</span>
+                                                    </label>
+                                                    <input type="file" accept=".jpg,.jpeg,.png" class="filePhoto" name="file" id="filePhoto" onchange="return fileValidation()" />
+                                                    <div class="uploader" onclick="$('#filePhoto').click()">
+                                                        <span id="uploader-text">@(Model?.PicUrl == null ? "Resim Yükle" : Model.PicUrl.Split('/').Last())</span>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Basic Inputs end -->
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js"
+            type="text/javascript"></script>
+    <script src="~/app-assets/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
+    <script src="~/app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"
+            type="text/javascript"></script>
+    <script src="~/app-assets/vendors/js/forms/extended/inputmask/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
+    <script src="~/app-assets/js/scripts/forms/extended/form-inputmask.min.js"></script>
+    <script src="~/app-assets/js/scripts/forms/validation/form-validation.min.js"></script>
+    <script src="~/app-assets/js/Custom/CustomFotoOlustur.js"></script>
+}

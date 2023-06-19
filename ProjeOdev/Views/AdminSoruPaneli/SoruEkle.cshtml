@@ -1,0 +1,80 @@
+﻿@model ProjeOdev.Managers.SoruViewModel
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- END: Main Menu-->
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
+
+        <div class="content-body">
+            <!-- Validation -->
+            <section class="bs-validation">
+                <div class="row">
+                    <!-- Bootstrap Validation -->
+                    <div class="col-md-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Question  Added</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <form method="post" enctype="multipart/form-data">
+                                    @Html.HiddenFor(x => x.sorular.Id)
+                                    
+                                    
+                                    <div class="mb-1">
+                                        <label class="form-label" for="basic-addon-name">A</label>
+                                        
+                                        <input type="text" class="form-control" placeholder="A" aria-label="Name" name="sorular.A" aria-describedby="basic-addon-name" required />
+                                    </div>
+                                    <div class="mb-1">
+                                        <label class="form-label" for="basic-addon-name">B</label>
+                            
+                                        <input type="text" class="form-control" placeholder="B" aria-label="Name" name="sorular.B" aria-describedby="basic-addon-name" required />
+
+                                    </div>
+                                    <div class="mb-1">
+                                        <label class="form-label" for="basic-addon-name">C</label>
+                                
+                                        <input type="text" class="form-control" placeholder="C" aria-label="Name" name="sorular.C" aria-describedby="basic-addon-name" required />
+
+                                    </div>
+                                    <div class="mb-1">
+                                        <label class="form-label" for="basic-addon-name">D</label>
+   
+                                        <input type="text" class="form-control" placeholder="D" aria-label="Name" name="sorular.D" aria-describedby="basic-addon-name" required />
+
+                                    </div>
+                                    <div class="mb-1">
+                                        <label class="form-label" for="basic-addon-name">gallery type</label>
+                                        @Html.DropDownListFor(s => s.galeri.GaleriTur, (SelectList)ViewBag.Tur, " -Chose- ", new { @class = "form-control", required = "required" })
+                                    </div>
+                                    <div class="mb-1">
+                                        <label class="d-block form-label">Question </label>
+                                        <textarea class="form-control" name="sorular.SoruAciklamasi" rows="3" required></textarea>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Bootstrap Validation -->
+                    <!-- jQuery Validation -->
+                    <!-- /jQuery Validation -->
+                </div>
+            </section>
+            <!-- /Validation -->
+
+        </div>
+    </div>
+</div>
+<!-- END: Content-->
+<script>
+
+
+</script>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="YonetimModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SoruYonetimModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdminLog">
           <Key>
             <PropertyRef Name="Id" />
@@ -18,11 +18,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PicUrl" Type="nvarchar(max)" />
-          <Property Name="CoverUrl" Type="nvarchar(max)" />
           <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="PicUrl" Type="nvarchar(max)" />
           <Property Name="Sil" Type="bit" />
-          <Property Name="Galeritur" Type="int" />
+          <Property Name="GaleriTur" Type="int" />
         </EntityType>
         <EntityType Name="GaleriTur">
           <Key>
@@ -42,7 +41,7 @@
           <Property Name="C" Type="nvarchar(max)" />
           <Property Name="D" Type="nvarchar(max)" />
           <Property Name="Sil" Type="bit" />
-          <Property Name="galeri" Type="int" />
+          <Property Name="Galeri" Type="int" />
         </EntityType>
         <Association Name="FK_Galeri_GaleriTur">
           <End Role="GaleriTur" Type="Self.GaleriTur" Multiplicity="0..1" />
@@ -52,7 +51,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Galeri">
-              <PropertyRef Name="Galeritur" />
+              <PropertyRef Name="GaleriTur" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -64,11 +63,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Sorular">
-              <PropertyRef Name="galeri" />
+              <PropertyRef Name="Galeri" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="YonetimModelStoreContainer">
+        <EntityContainer Name="SoruYonetimModelStoreContainer">
           <EntitySet Name="AdminLog" EntityType="Self.AdminLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Galeri" EntityType="Self.Galeri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GaleriTur" EntityType="Self.GaleriTur" Schema="dbo" store:Type="Tables" />
@@ -82,10 +81,11 @@
             <End Role="Sorular" EntitySet="Sorular" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="YonetimModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SoruYonetimModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AdminLog">
           <Key>
             <PropertyRef Name="Id" />
@@ -99,13 +99,20 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PicUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CoverUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PicUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Sil" Type="Boolean" />
+          <Property Name="GaleriTur" Type="Int32" />
+          <NavigationProperty Name="GaleriTur1" Relationship="Self.FK_Galeri_GaleriTur" FromRole="Galeri" ToRole="GaleriTur" />
           <NavigationProperty Name="Sorular" Relationship="Self.FK_Sorular_Galeri" FromRole="Galeri" ToRole="Sorular" />
-          <Property Name="Galeritur" Type="Int32" />
-          <NavigationProperty Name="GaleriTur1" Relationship="YonetimModel.FK_Galeri_GaleriTur" FromRole="Galeri" ToRole="GaleriTur" />
+        </EntityType>
+        <EntityType Name="GaleriTur">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Galeri" Relationship="Self.FK_Galeri_GaleriTur" FromRole="GaleriTur" ToRole="Galeri" />
         </EntityType>
         <EntityType Name="Sorular">
           <Key>
@@ -118,9 +125,21 @@
           <Property Name="C" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="D" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Sil" Type="Boolean" />
-          <Property Name="galeri" Type="Int32" />
+          <Property Name="Galeri" Type="Int32" />
           <NavigationProperty Name="Galeri1" Relationship="Self.FK_Sorular_Galeri" FromRole="Sorular" ToRole="Galeri" />
         </EntityType>
+        <Association Name="FK_Galeri_GaleriTur">
+          <End Role="GaleriTur" Type="Self.GaleriTur" Multiplicity="0..1" />
+          <End Role="Galeri" Type="Self.Galeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GaleriTur">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Galeri">
+              <PropertyRef Name="GaleriTur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sorular_Galeri">
           <End Role="Galeri" Type="Self.Galeri" Multiplicity="0..1" />
           <End Role="Sorular" Type="Self.Sorular" Multiplicity="*" />
@@ -129,52 +148,32 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Sorular">
-              <PropertyRef Name="galeri" />
+              <PropertyRef Name="Galeri" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AdminLog" EntityType="Self.AdminLog" />
           <EntitySet Name="Galeri" EntityType="Self.Galeri" />
+          <EntitySet Name="GaleriTur" EntityType="Self.GaleriTur" />
           <EntitySet Name="Sorular" EntityType="Self.Sorular" />
+          <AssociationSet Name="FK_Galeri_GaleriTur" Association="Self.FK_Galeri_GaleriTur">
+            <End Role="GaleriTur" EntitySet="GaleriTur" />
+            <End Role="Galeri" EntitySet="Galeri" />
+          </AssociationSet>
           <AssociationSet Name="FK_Sorular_Galeri" Association="Self.FK_Sorular_Galeri">
             <End Role="Galeri" EntitySet="Galeri" />
             <End Role="Sorular" EntitySet="Sorular" />
           </AssociationSet>
-          <EntitySet Name="GaleriTur" EntityType="YonetimModel.GaleriTur" />
-          <AssociationSet Name="FK_Galeri_GaleriTur" Association="YonetimModel.FK_Galeri_GaleriTur">
-            <End Role="GaleriTur" EntitySet="GaleriTur" />
-            <End Role="Galeri" EntitySet="Galeri" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="GaleriTur">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Galeri" Relationship="YonetimModel.FK_Galeri_GaleriTur" FromRole="GaleriTur" ToRole="Galeri" />
-        </EntityType>
-        <Association Name="FK_Galeri_GaleriTur">
-          <End Type="YonetimModel.GaleriTur" Role="GaleriTur" Multiplicity="0..1" />
-          <End Type="YonetimModel.Galeri" Role="Galeri" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GaleriTur">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Galeri">
-              <PropertyRef Name="Galeritur" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="YonetimModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="SoruYonetimModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="AdminLog">
-            <EntityTypeMapping TypeName="YonetimModel.AdminLog">
+            <EntityTypeMapping TypeName="SoruYonetimModel.AdminLog">
               <MappingFragment StoreEntitySet="AdminLog">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Mail" ColumnName="Mail" />
@@ -183,19 +182,26 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Galeri">
-            <EntityTypeMapping TypeName="YonetimModel.Galeri">
+            <EntityTypeMapping TypeName="SoruYonetimModel.Galeri">
               <MappingFragment StoreEntitySet="Galeri">
-                <ScalarProperty Name="Galeritur" ColumnName="Galeritur" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
-                <ScalarProperty Name="CoverUrl" ColumnName="CoverUrl" />
                 <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
                 <ScalarProperty Name="Sil" ColumnName="Sil" />
+                <ScalarProperty Name="GaleriTur" ColumnName="GaleriTur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GaleriTur">
+            <EntityTypeMapping TypeName="SoruYonetimModel.GaleriTur">
+              <MappingFragment StoreEntitySet="GaleriTur">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sorular">
-            <EntityTypeMapping TypeName="YonetimModel.Sorular">
+            <EntityTypeMapping TypeName="SoruYonetimModel.Sorular">
               <MappingFragment StoreEntitySet="Sorular">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SoruAciklamasi" ColumnName="SoruAciklamasi" />
@@ -204,15 +210,7 @@
                 <ScalarProperty Name="C" ColumnName="C" />
                 <ScalarProperty Name="D" ColumnName="D" />
                 <ScalarProperty Name="Sil" ColumnName="Sil" />
-                <ScalarProperty Name="galeri" ColumnName="galeri" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GaleriTur">
-            <EntityTypeMapping TypeName="YonetimModel.GaleriTur">
-              <MappingFragment StoreEntitySet="GaleriTur">
-                <ScalarProperty Name="Ad" ColumnName="Ad" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Galeri" ColumnName="Galeri" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

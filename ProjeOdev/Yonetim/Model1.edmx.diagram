@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6d66a73c79134ce793fed13f1364c8b1" Name="Diagram1">
-        <EntityTypeShape EntityType="YonetimModel.AdminLog" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YonetimModel.Galeri" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="YonetimModel.Sorular" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="YonetimModel.FK_Sorular_Galeri" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="YonetimModel.GaleriTur" Width="1.5" PointX="0.75" PointY="7.75" />
-        <AssociationConnector Association="YonetimModel.FK_Galeri_GaleriTur" />
+      <Diagram DiagramId="8f81cb7285d1437a87dd132497c13f5f" Name="Diagram1">
+        <EntityTypeShape EntityType="SoruYonetimModel.AdminLog" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoruYonetimModel.Galeri" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoruYonetimModel.GaleriTur" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoruYonetimModel.Sorular" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="SoruYonetimModel.FK_Galeri_GaleriTur" ManuallyRouted="false" />
+        <AssociationConnector Association="SoruYonetimModel.FK_Sorular_Galeri" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

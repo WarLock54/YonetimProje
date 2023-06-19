@@ -1,30 +1,29 @@
 /*=========================================================================================
-		File Name: form-repeater.js
-		Description: Repeat forms or form fields
-		----------------------------------------------------------------------------------------
-		Item Name: Robust - Responsive Admin Theme
-		Version: 3.0
-		Author: PIXINVENT
-		Author URL: http://www.themeforest.net/user/pixinvent
+    File Name: form-repeater.js
+    Description: form repeater page specific js
+    ----------------------------------------------------------------------------------------
+    Item Name: Vuexy HTML Admin Template
+    Version: 1.0
+    Author: PIXINVENT
+    Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
-(function(window, document, $) {
-	'use strict';
+$(function () {
+  'use strict';
 
-	// Default
-	$('.repeater-default').repeater();
-
-	// Custom Show / Hide Configurations
-	$('.file-repeater, .contact-repeater').repeater({
-		show: function () {
-			$(this).slideDown();
-		},
-		hide: function(remove) {
-			if (confirm('Are you sure you want to remove this item?')) {
-				$(this).slideUp(remove);
-			}
-		}
-	});
-
-
-})(window, document, jQuery);
+  // form repeater jquery
+  $('.invoice-repeater, .repeater-default').repeater({
+    show: function () {
+      $(this).slideDown();
+      // Feather Icons
+      if (feather) {
+        feather.replace({ width: 14, height: 14 });
+      }
+    },
+    hide: function (deleteElement) {
+      if (confirm('Are you sure you want to delete this element?')) {
+        $(this).slideUp(deleteElement);
+      }
+    }
+  });
+});

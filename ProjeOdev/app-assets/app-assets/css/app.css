@@ -1,0 +1,38 @@
+@import url("bootstrap-extended.css");
+@import url("colors.css");
+@import url("components.css");
+
+.uploader {
+    position: relative;
+    overflow: hidden;
+    width: 304px;
+    height: 50px;
+    background: #f3f3f3;
+    border: 2px dashed #e8e8e8;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 3;
+    cursor: pointer;
+}
+
+.filePhoto {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    top: -50px;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.uploader img {
+    position: absolute;
+    width: 302px;
+    height: 352px;
+    top: -1px;
+    left: -1px;
+    z-index: 1;
+    border: none;
+}
+

@@ -1,0 +1,335 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Basic Card - Vuexy - Bootstrap HTML admin template</title>
+    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <!-- END: Vendor CSS-->
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <!-- END: Page CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
+        <div class="navbar-container d-flex content">
+
+            <ul class="nav navbar-nav align-items-center ms-auto">
+                <li class="nav-item dropdown dropdown-language">
+                    <a class="nav-link dropdown-toggle" id="dropdown-flag" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i><span class="selected-language">English</span></a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="#" data-language="en"><i class="flag-icon flag-icon-us"></i> English</a><a class="dropdown-item" href="#" data-language="fr"><i class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="#" data-language="de"><i class="flag-icon flag-icon-de"></i> German</a><a class="dropdown-item" href="#" data-language="pt"><i class="flag-icon flag-icon-pt"></i> Portuguese</a></div>
+                </li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a></li>
+
+
+                <li class="nav-item dropdown dropdown-notification me-25">
+
+                    <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
+
+                        <li class="scrollable-container media-list">
+
+                            <a class="d-flex" href="#">
+                                <div class="list-item d-flex align-items-start">
+                                    <div class="me-1">
+                                        <div class="avatar bg-light-success">
+                                            <div class="avatar-content"><i class="avatar-icon" data-feather="check"></i></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="main-search-list-defaultlist-other-list d-none">
+        <li class="auto-suggestion justify-content-between">
+            <a class="d-flex align-items-center justify-content-between w-100 py-50">
+                <div class="d-flex justify-content-start"><span class="me-75" data-feather="alert-circle"></span><span>No results found.</span></div>
+            </a>
+        </li>
+    </ul>
+    <!-- END: Header-->
+    <!-- BEGIN: Main Menu-->
+    <!-- END: Main Menu-->
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper container-xxl p-0">
+            <div class="content-body">
+                <!-- Examples -->
+                <!-- Examples -->
+                <!-- Content types -->
+                <section id="card-content-types">
+                    <h5 class="mt-3">Random Questions           Username: @TempData["Mail"]</h5>
+
+                    <div class="row">
+
+
+                        <div class="col-md-6">
+
+                            <h6 class="my-2 text-muted"> QUESTİONS</h6>
+                            @foreach (var item in ViewBag.SilicedItems)
+                            {
+                                <div class="card">
+                                    <div class="card-header">
+
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Question</h4>
+                                        <p class="card-text"> @item.SoruAciklamasi</p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+
+                                            <label>
+                                                <input type="checkbox" onchange="toggleFontColor(this)" />
+                                                <span class="text-@((item.A.IndexOf('*') == 0) ? "success" : "dark")">
+                                                    @(item.A.IndexOf('*') >= 0 ? item.A.Substring(item.A.IndexOf('*') + 1) : item.A)
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <label>
+                                                <input type="checkbox" onchange="toggleFontColor(this)" />
+                                                <span class="text-@((item.B.IndexOf('*') == 0) ? "success" : "dark")">
+                                                    @(item.B.IndexOf('*') >= 0 ? item.B.Substring(item.B.IndexOf('*') + 1) : item.B)
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <label>
+                                                <input type="checkbox" onchange="toggleFontColor(this)" />
+                                                <span class="text-@((item.C.IndexOf('*') == 0) ? "success" : "dark")">
+                                                    
+                                                        @(item.C.IndexOf('*') >= 0 ? item.C.Substring(item.C.IndexOf('*') + 1) : item.C)
+                                                    </span>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <label>
+                                                <input type="checkbox" onchange="toggleFontColor(this)" />
+                                                <span class="text-@((item.D.IndexOf('*') == 0) ? "success" : "dark")">
+                                                    @(item.D.IndexOf('*') >= 0 ? item.D.Substring(item.D.IndexOf('*') + 1) : item.D)
+                                                </span>
+                                            </label>
+                                        </li>
+
+                                    </ul>
+                                    <div class="card-footer">
+İf the text is green your answer is correct
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+
+
+                </section>
+                <!--/ Content types -->
+                <!-- Text alignment -->
+                <!--/ Style variation -->
+                <!-- Card layout -->
+                <!--/ Card layout -->
+
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light">
+        <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2023<a class="ms-25" href="#" target="_blank">Onur Atalık</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span><span class="float-md-end d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i></span></p>
+    </footer>
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+    <!-- END: Footer-->
+    <!-- BEGIN: Vendor JS-->
+    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    <!-- END: Page Vendor JS-->
+    <!-- BEGIN: Theme JS-->
+    <script src="../../../app-assets/js/core/app-menu.js"></script>
+    <script src="../../../app-assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+    <!-- BEGIN: Page JS-->
+    <!-- END: Page JS                                         <button type="submit" class="card-link Kontrol" onclick="changeFontColor(this)">Kontrol Et</button>       -->
+
+    <script>
+    /*
+      function toggleFontColor(checkbox) {
+            var spanElement = checkbox.parentElement.querySelector("span");
+            if (checkbox.checked) {
+                spanElement.classList.toggle("text-dark");
+                spanElement.classList.toggle("text-success");
+                
+            } else {
+  
+                spanElement.classList.toggle("text-success");
+                spanElement.classList.toggle("text-dark");
+            }
+        }
+
+        function changeFontColor(button) {
+            var spans = button.parentElement.parentElement.querySelectorAll("span");
+            spans.forEach(function (span) {
+                var isChecked = span.parentElement.querySelector("input").checked;
+                if (isChecked) {
+                    span.classList.remove("text-dark");
+                    span.classList.add("text-success");
+                    var cardFooter = document.querySelector('.ekle');
+                    var metin = "You picked the right answer ";
+                    cardFooter.innerHTML = metin;
+                } else {
+                    span.classList.remove("text-success");
+                    span.classList.add("text-dark");
+                }
+            });
+        }*/
+
+        /*
+        function toggleFontColor(checkbox) {
+            var spanElement = checkbox.parentElement.querySelector("span");
+            if (checkbox.checked) {
+                spanElement.classList.toggle("text-dark");
+                spanElement.classList.toggle("text-success");
+            } else {
+                spanElement.classList.toggle("text-success");
+                spanElement.classList.toggle("text-dark");
+            }
+        }
+
+        function checkAnswers(randomId) {
+            var checkboxes = document.querySelectorAll("input[name='answer_" + randomId + "']");
+            var correctAnswers = 0;
+            var totalQuestions = checkboxes.length;
+
+            checkboxes.forEach(function (checkbox) {
+                var spanElement = checkbox.parentElement.querySelector("span");
+                var isChecked = checkbox.checked;
+                var isCorrect = spanElement.classList.contains("text-success");
+
+                checkbox.disabled = true; // Disable checkboxes after checking
+
+                if (isChecked && isCorrect) {
+                    correctAnswers++;
+                } else if (isChecked && !isCorrect) {
+                    spanElement.classList.add("text-danger"); // Mark incorrect answers with red color
+                } else if (!isChecked && isCorrect) {
+                    spanElement.classList.add("text-success"); // Highlight correct answers that were not selected
+                }
+            });
+
+            var footer = document.querySelector(".card-footer");
+            footer.innerHTML = "Correct answers: " + correctAnswers + " out of " + totalQuestions;
+
+            if (correctAnswers === totalQuestions) {
+                footer.innerHTML += " - All answers are correct!";
+            } else {
+                footer.innerHTML += " - Try again.";
+            }
+        }
+
+*/
+
+        $(window).on('load', function () {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+        })</script>
+</body>
+<!-- END: Body-->
+
+</html>
+@*
+    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">@(item.A.IndexOf('*') >= 0 ? item.A.Substring(item.A.IndexOf('*') + 1) : item.A)</li>
+                                        <li class="list-group-item">@(item.B.IndexOf('*') >= 0 ? item.B.Substring(item.B.IndexOf('*') + 1) : item.B)</li>
+                                        <li class="list-group-item">@(item.C.IndexOf('*') >= 0 ? item.C.Substring(item.C.IndexOf('*') + 1) : item.C)</li>
+                                        <li class="list-group-item">@(item.D.IndexOf('*') >= 0 ? item.D.Substring(item.D.IndexOf('*') + 1) : item.D)</li>
+
+                                    </ul>
+
+
+    <section id="card-content-types">
+        <h5 class="mt-3">Random Questions</h5>
+
+        <div class="row">
+
+
+            <div class="col-md-6 col-lg-4">
+                <h6 class="my-2 text-muted"> QUESTİONS</h6>
+                <div class="card">
+                    <img class="card-img-top" src="../../../app-assets/images/slider/02.jpg" alt="Card image cap" />
+                    <div class="card-header">
+                        Username: @TempData["Mail"]
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Question</h4>
+                        <p class="card-text"> SoruAçıklaması</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><span>A</span>CEVAP</li>
+                        <li class="list-group-item"><span>B</span>CEVAP</li>
+                        <li class="list-group-item"><span>C</span>CEVAP</li>
+                        <li class="list-group-item"><span>D</span>CEVAP</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="" class="card-link">Next Question</a>
+                        <a href="" class="card-link">Previous Question</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+*@
