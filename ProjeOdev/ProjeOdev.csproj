@@ -155,6 +155,9 @@
     <Compile Include="Yonetim\AdminLog.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Yonetim\FeedBack.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Yonetim\Galeri.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -3024,6 +3027,7 @@
     <Content Include="app-assets\vendors\js\editors\quill\assets\snow.styl" />
     <Content Include="app-assets\vendors\js\editors\quill\assets\snow\toolbar.styl" />
     <Content Include="app-assets\vendors\js\editors\quill\assets\snow\tooltip.styl" />
+    <Content Include="Scripts\FeedBackCustom.js" />
     <Content Include="Yonetim\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -3698,7 +3702,6 @@
     <Content Include="Views\AdminSoruPaneli\GetirList.cshtml" />
     <Content Include="Views\Home\Oturum.cshtml" />
     <Content Include="Views\Home\SorularıListele.cshtml" />
-    <Content Include="Views\AdminSoruPaneli\Guncelle.cshtml" />
     <Content Include="Views\Galeri\FotoOlustur.cshtml" />
     <Content Include="Views\Galeri\FotoGaleri.cshtml" />
     <EntityDeploy Include="Yonetim\Model1.edmx">
@@ -3709,6 +3712,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Views\AdminSoruPaneli\DogruCevapEkle.cshtml" />
+    <Content Include="Views\AdminSoruPaneli\FeedBackList.cshtml" />
+    <Content Include="Views\AdminSoruPaneli\FeedBackGoruntule.cshtml" />
+    <Content Include="Views\AdminSoruPaneli\SoruGuncelle.cshtml" />
+    <Content Include="Views\Home\YorumYaz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app-assets\Upload\Fotograf\" />

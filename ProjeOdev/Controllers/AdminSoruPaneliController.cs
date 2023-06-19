@@ -109,6 +109,12 @@ foreach(var file in medya)
             SoruManager.DeleteSoru(id);
             return RedirectToAction("Index");
         }
+        public ActionResult SoruGuncelle(Sorular sorular)
+
+        {
+            var val = SoruManager.GetSoruById(sorular.Id);
+            return View(val);
+        }
        [HttpPost]
         public ActionResult SoruGuncelle(SoruViewModel form,HttpPostedFileBase file)
         {
@@ -118,22 +124,45 @@ foreach(var file in medya)
             return RedirectToAction("Index");
 
         }
+        public ActionResult FeedBackList()
+        {
+            return View();
+        }
         
+        public ActionResult FeedBackGoruntule(FeedBack feed)
+        {
+            var val = SoruManager.GetFeedBackById(feed.Id);
+        
+            return View(val);
+        }
+        
+
         public ActionResult GetSoru([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
         {
             var originalData = SoruManager.GetSoru(requestModel, out var totalCount, out var filteredCount);
             var data2 = originalData.Select(asset => new
             {
-                SıraNo = asset.Id,
+                Id = asset.Id,
                 SoruAciklamasi = asset.SoruAciklamasi,
-                A=asset.A,
-                B=asset.B,
-                C=asset.C,
-                D = asset.D,
+                A = asset.A,
             }).ToList();
 
             return Json(new DataTablesResponse(requestModel.Draw, data2, filteredCount, totalCount), JsonRequestBehavior.AllowGet);
         }
+        public ActionResult GetFeedBack([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
+        {
+            var originalData = SoruManager.GetFeedBack(requestModel, out var totalCount, out var filteredCount);
+            var data2 = originalData.Select(asset => new
+            {
+
+                 Id= asset.Id,
+                 Yorum=asset.Yorum,
+                    
+            }).ToList();
+
+            return Json(new DataTablesResponse(requestModel.Draw, data2, filteredCount, totalCount), JsonRequestBehavior.AllowGet);
+        }
+
         [HttpGet]
         public ActionResult UploadFile()
         {

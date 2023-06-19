@@ -4,6 +4,7 @@
     <EntitySetMapping Name="AdminLog">
       <EntityTypeMapping TypeName="SoruYonetimModel.AdminLog">
         <MappingFragment StoreEntitySet="AdminLog">
+          <ScalarProperty Name="FeedBack" ColumnName="FeedBack" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Mail" ColumnName="Mail" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -40,6 +41,14 @@
           <ScalarProperty Name="D" ColumnName="D" />
           <ScalarProperty Name="Sil" ColumnName="Sil" />
           <ScalarProperty Name="Galeri" ColumnName="Galeri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedBack">
+      <EntityTypeMapping TypeName="SoruYonetimModel.FeedBack">
+        <MappingFragment StoreEntitySet="FeedBack">
+          <ScalarProperty Name="Yorum" ColumnName="Yorum" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

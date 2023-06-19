@@ -23,7 +23,6 @@ namespace ProjeOdev.Models
         {
             var db=new Entities();
             var val = GaleriManager.GetGaleriById(galeri.Id);
-            val.Link = galeri.Link;
             val.PicUrl = galeri.PicUrl;
                 val.GaleriTur = galeri.GaleriTur;
             db.SaveChanges();

@@ -7,6 +7,14 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Mail" Type="nvarchar(max)" />
     <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="FeedBack" Type="int" />
+  </EntityType>
+  <EntityType Name="FeedBack">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Yorum" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Galeri">
     <Key>
@@ -38,6 +46,18 @@
     <Property Name="Sil" Type="bit" />
     <Property Name="Galeri" Type="int" />
   </EntityType>
+  <Association Name="FK_AdminLog_FeedBack">
+    <End Role="FeedBack" Type="Self.FeedBack" Multiplicity="0..1" />
+    <End Role="AdminLog" Type="Self.AdminLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedBack">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdminLog">
+        <PropertyRef Name="FeedBack" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Galeri_GaleriTur">
     <End Role="GaleriTur" Type="Self.GaleriTur" Multiplicity="0..1" />
     <End Role="Galeri" Type="Self.Galeri" Multiplicity="*" />
@@ -64,9 +84,14 @@
   </Association>
   <EntityContainer Name="SoruYonetimModelStoreContainer">
     <EntitySet Name="AdminLog" EntityType="Self.AdminLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedBack" EntityType="Self.FeedBack" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Galeri" EntityType="Self.Galeri" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GaleriTur" EntityType="Self.GaleriTur" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sorular" EntityType="Self.Sorular" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AdminLog_FeedBack" Association="Self.FK_AdminLog_FeedBack">
+      <End Role="FeedBack" EntitySet="FeedBack" />
+      <End Role="AdminLog" EntitySet="AdminLog" />
+    </AssociationSet>
     <AssociationSet Name="FK_Galeri_GaleriTur" Association="Self.FK_Galeri_GaleriTur">
       <End Role="GaleriTur" EntitySet="GaleriTur" />
       <End Role="Galeri" EntitySet="Galeri" />

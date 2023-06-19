@@ -48,6 +48,39 @@ namespace ProjeOdev.Models
             query = query.Skip(requestModel.Start).Take(requestModel.Length);
             return query;
         }
+        public static IQueryable<FeedBack> GetFeedBack([ModelBinder(typeof(DataTablesBinder))]
+            IDataTablesRequest requestModel,
+        out int totalCount,
+        out int filteredCount)
+        {
+            var db = new Entities();
+            var query = db.FeedBacks.AsQueryable();
+            totalCount = query.Count();
+
+            #region Filtering 
+
+            // Apply filters for searching 
+            if (requestModel.Search.Value != string.Empty)
+            {
+                var value = requestModel.Search.Value.Trim();
+                query = query.Where(p => p.Yorum.ToString().Contains(value));
+
+
+            }
+            filteredCount = query.Count();
+
+            #endregion Filtering 
+
+            #region Sorting 
+
+            query = query.OrderByDescending(x => x.Yorum);
+
+            #endregion Sorting 
+
+            // Paging 
+            query = query.Skip(requestModel.Start).Take(requestModel.Length);
+            return query;
+        }
         public static int AddUpdate(Sorular soru)
         {
             using (var db = new Entities())
@@ -68,6 +101,16 @@ namespace ProjeOdev.Models
                 return true;
             }
         }
+        public static FeedBack GetFeedBackById(int id)
+        {
+            using (var db = new Entities())
+            {
+                var getsoru = db.FeedBacks.FirstOrDefault(x => x.Id == id);
+
+                return getsoru ?? new FeedBack();
+            }
+        }
+
         public static Sorular GetSoruById(int id)
         {
             using (var db = new Entities())
@@ -131,6 +174,13 @@ namespace ProjeOdev.Models
             {
                 return db.Galeris.Include(x => x.GaleriTur1).Where(x => x.Sil != true && x.GaleriTur == 1).ToList();
             }
+        }
+        public static FeedBack FeedBackEkle(FeedBack feed)
+        {
+            var db = new Entities();
+            db.FeedBacks.Add(feed);
+            db.SaveChanges();
+            return feed;
         }
        /* public static void FotoEkle(HttpPostedFileBase Kapaks, int Uid, int sira)
         {

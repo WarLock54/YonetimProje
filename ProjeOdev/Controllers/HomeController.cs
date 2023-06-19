@@ -56,6 +56,11 @@ namespace ProjeOdev.Controllers
         }
         public ActionResult SorularıListele(int page=1)
         {
+            var val = Session["feedBack"];
+            if (val!=null) {
+                TempData["Cikti"] = val;
+            }
+
             var db = new Entities();
             var itemCount = db.Sorulars.Count();
             ViewBag.Count = itemCount;
@@ -70,12 +75,17 @@ namespace ProjeOdev.Controllers
            
             return View();
         }
-        [HttpPost]
-        public ActionResult KontrolEt(int data)
+    [HttpGet]
+        public ActionResult YorumYaz()
         {
-
-
-            return Json(data,JsonRequestBehavior.AllowGet);
+            return View();
+        }
+        [HttpPost]
+        public ActionResult YorumYaz(FeedBack feed)
+        {
+            var val = SoruManager.FeedBackEkle(feed);
+            Session["feedBack"] = "Your comment has been sent successfully";
+            return RedirectToAction("SorularıListele","Home");
         }
         
 

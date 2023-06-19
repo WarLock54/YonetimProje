@@ -1,0 +1,61 @@
+﻿@model ProjeOdev.Yonetim.Sorular
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
+
+        <div class="content-body">
+            <!-- Validation -->
+            <section class="bs-validation">
+                <div class="row">
+                    <!-- Bootstrap Validation -->
+                    <div class="col-md-6 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2>Falsifying</h2>
+                                <h4>  @Model.SoruAciklamasi</h4>
+                              
+                                    <span style="display:none" id="Id">@Model.Id</span>
+                                    <div class="mb-1">
+                                        <label class="form-label">A</label>
+                                        <input type="radio" name="selectedOption" id="optionA" />
+                                        @Html.TextBoxFor(model => model.A, new { @class = "form-control", id = "valA" })
+
+                                    </div>
+                                    <div class="mb-1">
+                                        <label class="form-label">B</label>
+                                        <input type="radio" name="selectedOption" id="optionB" />
+                                        @Html.TextBoxFor(model => model.B, new { @class = "form-control", id = "valB" })
+                                    </div>
+                                    <div class="mb-1">
+                                        <label class="form-label">C</label>
+                                        <input type="radio" name="selectedOption" id="optionC" />
+                                        @Html.TextBoxFor(model => model.C, new { @class = "form-control", id = "valC" })
+                                    </div>
+                                    <div class="mb-1">
+                                        <label class="form-label">D</label>
+                                        <input type="radio" name="selectedOption" id="optionD" />
+                                        @Html.TextBoxFor(model => model.D, new { @class = "form-control", id = "valD" })
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-warning">UPDATE THE QUESTİON</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Bootstrap Validation -->
+                    <!-- jQuery Validation -->
+                    <!-- /jQuery Validation -->
+                </div>
+            </section>
+            <!-- /Validation -->
+
+        </div>
+    </div>
+</div>

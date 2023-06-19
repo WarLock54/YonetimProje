@@ -29,5 +29,6 @@ namespace ProjeOdev.Yonetim
         public virtual DbSet<Galeri> Galeris { get; set; }
         public virtual DbSet<GaleriTur> GaleriTurs { get; set; }
         public virtual DbSet<Sorular> Sorulars { get; set; }
+        public virtual DbSet<FeedBack> FeedBacks { get; set; }
     }
 }

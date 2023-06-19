@@ -1,0 +1,36 @@
+﻿@model ProjeOdev.Yonetim.FeedBack
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
+
+        <div class="content-body">
+            <!-- Validation -->
+            <section class="bs-validation">
+                <div class="row">
+
+                    <div class="col-xl-8 col-lg-8">
+                        <div class="privacy-content-wrapper">
+                            <div class="tab-content" id="privacy-nav-content">
+                                <div class="tab-pane fade show active" id="started" role="tabpanel" aria-labelledby="started-tab">
+                                    <div class="privacy-item mb-55">
+                                        <h4 class="privacy-title mb-20">FeedBack</h4>
+                                        <p>
+                                            @Model.Yorum
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+</section>
+        </div>
+    </div>
+</div>

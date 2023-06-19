@@ -7,6 +7,8 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FeedBack" Type="Int32" />
+    <NavigationProperty Name="FeedBack1" Relationship="SoruYonetimModel.FK_AdminLog_FeedBack" FromRole="AdminLog" ToRole="FeedBack" />
   </EntityType>
   <EntityType Name="Galeri">
     <Key>
@@ -79,5 +81,30 @@
       <End Role="Galeri" EntitySet="Galeri" />
       <End Role="Sorular" EntitySet="Sorular" />
     </AssociationSet>
+    <EntitySet Name="FeedBack" EntityType="SoruYonetimModel.FeedBack" />
+    <AssociationSet Name="FK_AdminLog_FeedBack" Association="SoruYonetimModel.FK_AdminLog_FeedBack">
+      <End Role="FeedBack" EntitySet="FeedBack" />
+      <End Role="AdminLog" EntitySet="AdminLog" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="FeedBack">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Yorum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AdminLog" Relationship="SoruYonetimModel.FK_AdminLog_FeedBack" FromRole="FeedBack" ToRole="AdminLog" />
+  </EntityType>
+  <Association Name="FK_AdminLog_FeedBack">
+    <End Type="SoruYonetimModel.FeedBack" Role="FeedBack" Multiplicity="0..1" />
+    <End Type="SoruYonetimModel.AdminLog" Role="AdminLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedBack">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdminLog">
+        <PropertyRef Name="FeedBack" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

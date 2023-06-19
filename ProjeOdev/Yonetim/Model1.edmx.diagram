@@ -11,6 +11,8 @@
         <EntityTypeShape EntityType="SoruYonetimModel.Sorular" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="SoruYonetimModel.FK_Galeri_GaleriTur" ManuallyRouted="false" />
         <AssociationConnector Association="SoruYonetimModel.FK_Sorular_Galeri" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SoruYonetimModel.FeedBack" Width="1.5" PointX="0.75" PointY="8" />
+        <AssociationConnector Association="SoruYonetimModel.FK_AdminLog_FeedBack" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

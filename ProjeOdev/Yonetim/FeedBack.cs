@@ -12,13 +12,18 @@ namespace ProjeOdev.Yonetim
     using System;
     using System.Collections.Generic;
     
-    public partial class AdminLog
+    public partial class FeedBack
     {
-        public int Id { get; set; }
-        public string Mail { get; set; }
-        public string Password { get; set; }
-        public Nullable<int> FeedBack { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public FeedBack()
+        {
+            this.AdminLog = new HashSet<AdminLog>();
+        }
     
-        public virtual FeedBack FeedBack1 { get; set; }
+        public int Id { get; set; }
+        public string Yorum { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AdminLog> AdminLog { get; set; }
     }
 }
