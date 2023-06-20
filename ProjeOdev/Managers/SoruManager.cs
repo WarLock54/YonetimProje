@@ -111,6 +111,7 @@ namespace ProjeOdev.Models
             }
         }
 
+
         public static Sorular GetSoruById(int id)
         {
             using (var db = new Entities())

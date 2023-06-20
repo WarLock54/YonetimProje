@@ -183,4 +183,3 @@ C:\Users\onr_5\source\repos\ProjeOdev\YonetimProje\ProjeOdev\bin\PagedList.dll
 C:\Users\onr_5\source\repos\ProjeOdev\YonetimProje\ProjeOdev\bin\PagedList.Mvc.dll
 C:\Users\onr_5\source\repos\ProjeOdev\YonetimProje\ProjeOdev\bin\PagedList.xml
 C:\Users\onr_5\source\repos\ProjeOdev\YonetimProje\ProjeOdev\bin\PagedList.Mvc.xml
-C:\Users\onr_5\source\repos\ProjeOdev\YonetimProje\ProjeOdev\obj\Debug\ProjeOdev.csproj.AssemblyReference.cache

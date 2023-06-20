@@ -64,16 +64,23 @@ namespace ProjeOdev.Controllers
             var db = new Entities();
             var itemCount = db.Sorulars.Count();
             ViewBag.Count = itemCount;
-            int pageSize = 10;
-            int pageNumber = (int)Math.Ceiling((double)itemCount / pageSize); // kaç sayfa olacağı
+            int pageSize = 1;
+            int pageNumber = (int)Math.Ceiling((double)itemCount / pageSize); 
             int currentPage = page;
             var random = new Random();
             var allItems = db.Sorulars.ToList();
             var randomItems = allItems.OrderBy(x => random.Next()).Take(pageSize).ToList();
             var slicedItems = randomItems.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
             ViewBag.SilicedItems = slicedItems;
+  
            
             return View();
+        }
+        public ActionResult DogusunuGoster(int  id )
+        {
+            var value = SoruManager.GetSoruById(id);
+            ViewBag.Goster = value;
+            return View(value);
         }
     [HttpGet]
         public ActionResult YorumYaz()

@@ -21,37 +21,34 @@
                         <div class="card">
                             <div class="card-body">
                                 <h2>Falsifying</h2>
-                                <h4>  @Model.A </h4>
-                                <form id="myForm" onsubmit="Ekle()" enctype="multipart/form-data" >
+                                <h4>  @Model.SoruAciklamasi </h4>
+                                <form id="myForm" method="post"  enctype="multipart/form-data">
                                     <span style="display:none" id="Id">@Model.Id</span>
                                     <div class="mb-1">
-                                        <label class="form-label" >A</label>
-                                        <input  type="radio" name="selectedOption" id="optionA"  />
+                                        <label class="form-label">A</label>
+                                        <input type="radio" name="selectedOption" id="optionA" />
                                         @Html.TextBoxFor(model => model.A, new { @class = "form-control", id = "valA" })
 
                                     </div>
                                     <div class="mb-1">
-                                        <label class="form-label" >B</label>
-                                        <input  type="radio" name="selectedOption" id="optionB"  />
+                                        <label class="form-label">B</label>
+                                        <input type="radio" name="selectedOption" id="optionB" />
                                         @Html.TextBoxFor(model => model.B, new { @class = "form-control", id = "valB" })
                                     </div>
                                     <div class="mb-1">
-                                        <label class="form-label" >C</label>
-                                        <input  type="radio" name="selectedOption" id="optionC" />
+                                        <label class="form-label">C</label>
+                                        <input type="radio" name="selectedOption" id="optionC" />
                                         @Html.TextBoxFor(model => model.C, new { @class = "form-control", id = "valC" })
                                     </div>
                                     <div class="mb-1">
                                         <label class="form-label">D</label>
-                                        <input  type="radio" name="selectedOption" id="optionD"  />
+                                        <input type="radio" name="selectedOption" id="optionD" />
                                         @Html.TextBoxFor(model => model.D, new { @class = "form-control", id = "valD" })
                                     </div>
-                                    <div class="mb-1">
-                                        <label  class="form-label">Question Media</label>
-                                        <input class="form-control" name="medya" type="file" id="medya"  />
-                                    </div>
-                                    <button type="submit" class="btn btn-warning"   >Pick The Right Question</button>
+                                   
+                                    <button type="submit" class="btn btn-warning" >Pick The Right Question</button>
                                 </form>
-
+                               
                             </div>
                         </div>
                     </div>
@@ -66,17 +63,11 @@
     </div>
 </div>
 
+
 <script>
-    function Ekle() {
+    /*function Ekle() {
 
-        console.log("yetttttttttttttttttttterrrrrrrrrrrrrrrrrrrr3")
 
-        var file = document.getElementById("medya");
-        var media = file.files;
-        var formData = new FormData();
-        for (var i = 0; i < media.length; i++) {
-            formData.append("file", media[i], media[i].name);
-        }
 
         var optionA = document.getElementById("optionA");
         var optionB = document.getElementById("optionB");
@@ -86,7 +77,7 @@
         var inputB = document.getElementById("valB").value;
         var inputC = document.getElementById("valC").value;
         var inputD = document.getElementById("valD").value;
-        console.log("yetttttttttttttttttttterrrrrrrrrrrrrrrrrrr4")
+
         var IdYazi = document.getElementById("Id").innerHTML;
         var Id = parseInt(IdYazi);
         // Input değerlerini düzenle
@@ -107,17 +98,15 @@
             inputD = "*" + inputD;
         }
 
-        console.log("yetttttttttttttttttttterrrrrrrrrrrrrrrrrrrr5")
 
-   
-
+        debugger;
         $.ajax({
 
             type: "post",
-             url: '@Url.Action("DogruCevapEkle", "AdminSoruPaneli")',
-            data: { Id: Id, A: inputA, B: inputB, C: inputC, D: inputD, medya: formData },
+            url: "/AdminSoruPaneli/DogruCevapEkle",
+            data: { Idx: Id, A: inputA, B: inputB, C: inputC, D: inputD},
             success: function () {
-                console.log("Gonderildi.")
+                window.location.href("/AdminSoruPaneli/ResimEkle")
             },
             error: function (err) {
                 console.log("hata ajaxda")
@@ -125,8 +114,124 @@
             }
         });
 
-    }
+    }*/
 
 </script>
 
 
+
+
+
+@* <div class="card-body">
+                                    <h2>Falsifying</h2>
+                                    <h4>  @Model.SoruAciklamasi </h4>
+                                    <form id="myForm" onsubmit="Ekle()" enctype="multipart/form-data">
+                                        <span style="display:none" id="Id">@Model.Id</span>
+                                        <div class="mb-1">
+                                            <label class="form-label">A</label>
+                                            <input type="radio" name="selectedOption" id="optionA" />
+                                            @Html.TextBoxFor(model => model.A, new { @class = "form-control", id = "valA" })
+
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label">B</label>
+                                            <input type="radio" name="selectedOption" id="optionB" />
+                                            @Html.TextBoxFor(model => model.B, new { @class = "form-control", id = "valB" })
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label">C</label>
+                                            <input type="radio" name="selectedOption" id="optionC" />
+                                            @Html.TextBoxFor(model => model.C, new { @class = "form-control", id = "valC" })
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label">D</label>
+                                            <input type="radio" name="selectedOption" id="optionD" />
+                                            @Html.TextBoxFor(model => model.D, new { @class = "form-control", id = "valD" })
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label">Question Media</label>
+                                            <input class="form-control" type="file" id="medya" name="medya" multiple />
+                                        </div>
+                                        <button type="submit" class="btn btn-warning">Pick The Right Question</button>
+                                    </form>
+                                    @Model.Galeri1.PicUrl
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Bootstrap Validation -->
+                        <!-- jQuery Validation -->
+                        <!-- /jQuery Validation -->
+                    </div>
+                </section>
+                <!-- /Validation -->
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function Ekle() {
+
+            console.log("yetttttttttttttttttttterrrrrrrrrrrrrrrrrrrr3")
+
+            var file = document.getElementById("medya");
+            var media = file.files;
+            var formData = new FormData();
+
+                formData.append("file", media);
+
+
+            var optionA = document.getElementById("optionA");
+            var optionB = document.getElementById("optionB");
+            var optionC = document.getElementById("optionC");
+            var optionD = document.getElementById("optionD");
+            var inputA = document.getElementById("valA").value;
+            var inputB = document.getElementById("valB").value;
+            var inputC = document.getElementById("valC").value;
+            var inputD = document.getElementById("valD").value;
+            console.log("yetttttttttttttttttttterrrrrrrrrrrrrrrrrrr4")
+            var IdYazi = document.getElementById("Id").innerHTML;
+            var Id = parseInt(IdYazi);
+            // Input değerlerini düzenle
+            if (optionA.checked) {
+
+                inputA = "*" + inputA;
+            }
+            if (optionB.checked) {
+
+                inputB = "*" + inputB;
+            }
+            if (optionC.checked) {
+
+                inputC = "*" + inputC;
+            }
+            if (optionD.checked) {
+
+                inputD = "*" + inputD;
+            }
+
+            console.log(formData)
+
+
+            debugger;
+            $.ajax({
+
+                type: "post",
+                url: "/AdminSoruPaneli/DogruCevapEkle",
+                data: { Idx: Id, A: inputA, B: inputB, C: inputC, D: inputD, medya: formData },
+                success: function () {
+                    console.log("Gonderildi.")
+                },
+                error: function (err) {
+                    console.log("hata ajaxda")
+                    console.log(err);
+                }
+            });
+
+        }
+
+    </script>
+
+
+*@

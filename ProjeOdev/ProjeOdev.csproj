@@ -3716,6 +3716,8 @@
     <Content Include="Views\AdminSoruPaneli\FeedBackGoruntule.cshtml" />
     <Content Include="Views\AdminSoruPaneli\SoruGuncelle.cshtml" />
     <Content Include="Views\Home\YorumYaz.cshtml" />
+    <Content Include="Views\AdminSoruPaneli\ResimEkle.cshtml" />
+    <Content Include="Views\Home\DogusunuGoster.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app-assets\Upload\Fotograf\" />

@@ -93,8 +93,6 @@
                 <!-- Examples -->
                 <!-- Content types -->
                 <section id="card-content-types">
-                    <h5 class="mt-3">Random Questions           Username: @TempData["Mail"]</h5>
-
                     <div class="row">
                         @if (TempData["Cikti"] != null)
                         {
@@ -103,74 +101,66 @@
 
                             </h3>
                         }
-                        <h6 class="my-2 text-muted"> QUESTİONS</h6>
-                        @foreach (var item in ViewBag.SilicedItems)
-                        {
+                        <h6 class="my-2 text-muted"> QUESTİON Answer</h6>
+                       
 
                             <div class="col-md-6 col-lg-4">
                                 <div class="card">
-                                    <div class="card-header">
-                                        @if (item.Galeri1 != null && item.Galeri1.PicUrl)
-                                        {
-                                            <img href="@item.Galeri1.PicUrl" alt="Soru RESİM " style="height:250px;width:250px;" />
-                                        }
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Question</h4>
-                                        <p class="card-text"> @item.SoruAciklamasi</p>
-                                    </div>
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
 
                                             <label>
-                                                <input type="checkbox" onchange="toggleFontColor(this)" />
-                                                <span id="optionA" >
-                                                    @(item.A.IndexOf('*') >= 0 ? item.A.Substring(item.A.IndexOf('*') + 1) : item.A)
-                                                </span>
-                                            </label>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <label>
-                                                <input type="checkbox" onchange="toggleFontColor(this)" />
-                                                <span id="optionB" >
-                                                    @(item.B.IndexOf('*') >= 0 ? item.B.Substring(item.B.IndexOf('*') + 1) : item.B)
-                                                </span>
-                                            </label>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <label>
-                                                <input type="checkbox" onchange="toggleFontColor(this)" />
-                                                <span id="optionC" >
 
-                                                    @(item.C.IndexOf('*') >= 0 ? item.C.Substring(item.C.IndexOf('*') + 1) : item.C)
+                                                <span id="optionA" class="text-@(( ViewBag.Goster.A.IndexOf('*') == 0) ? "success" : "dark")">
+                                                    @( ViewBag.Goster.A.IndexOf('*') >= 0 ? ViewBag.Goster.A.Substring(ViewBag.Goster.A.IndexOf('*') + 1) : ViewBag.Goster.A)
                                                 </span>
                                             </label>
                                         </li>
                                         <li class="list-group-item">
                                             <label>
-                                                <input type="checkbox" onchange="toggleFontColor(this)" />
-                                                <span id="optionD" >
-                                                    @(item.D.IndexOf('*') >= 0 ? item.D.Substring(item.D.IndexOf('*') + 1) : item.D)
+
+                                                <span id="optionB" class="text-@(( ViewBag.Goster.B.IndexOf('*') == 0) ? "success" : "dark")">
+                                                    @( ViewBag.Goster.B.IndexOf('*') >= 0 ? ViewBag.Goster.B.Substring(ViewBag.Goster.B.IndexOf('*') + 1) : ViewBag.Goster.B)
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <label>
+
+                                                <span id="optionC" class="text-@(( ViewBag.Goster.C.IndexOf('*') == 0) ? "success" : "dark")">
+
+                                                    @( ViewBag.Goster.C.IndexOf('*') >= 0 ? ViewBag.Goster.C.Substring(ViewBag.Goster.C.IndexOf('*') + 1) : ViewBag.Goster.C)
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <label>
+
+                                                <span id="optionD" class="text-@(( ViewBag.Goster.D.IndexOf('*') == 0) ? "success" : "dark")">
+                                                    @( ViewBag.Goster.D.IndexOf('*') >= 0 ? ViewBag.Goster.D.Substring(ViewBag.Goster.D.IndexOf('*') + 1) : ViewBag.Goster.D)
                                                 </span>
                                             </label>
                                         </li>
 
                                     </ul>
-                                    <div class="card-footer">
-                                        <button class="btn btn-primary"><a href="@Url.Action("DogusunuGoster","Home",new { id=item.Id})">Show the right answer</a></button>
-
-                                    </div>
+                                    <button class="btn btn-warning"><a href="@Url.Action("SorularıListele","Home")">Back to Questions</a></button>
                                 </div>
                             </div>
-                        }
 
-                        
+                       
+                  
+
+
                     </div>
 
 
 
                 </section>
-              
+                <!--/ Content types -->
+                <!-- Text alignment -->
+                <!--/ Style variation -->
+                <!-- Card layout -->
+                <!--/ Card layout  -->@*class="text-@((item.D.IndexOf('*') == 0) ? "success" : "dark")"*@
                 <a href="/Home/YorumYaz">Yorum Yaz</a>
             </div>
         </div>
@@ -194,10 +184,5 @@
     <!-- BEGIN: Theme JS-->
     <script src="../../../app-assets/js/core/app-menu.js"></script>
     <script src="../../../app-assets/js/core/app.js"></script>
-    <!-- END: Theme JS-->
-    <!-- BEGIN: Page JS-->
-  
-</body>
-<!-- END: Body-->
-
+    </body>
 </html>

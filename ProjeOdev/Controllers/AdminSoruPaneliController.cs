@@ -42,6 +42,7 @@ namespace ProjeOdev.Controllers
             SoruManager.AddUpdate(soru.sorular);
             
             soru.galeri.Id = soru.sorular.Id;
+            soru.sorular.Galeri = soru.galeri.Id;
             soru.galeri.Sil = false;
 
             GaleriManager.GaleriEkle(soru.galeri);
@@ -51,58 +52,70 @@ namespace ProjeOdev.Controllers
 
             return RedirectToAction("DogruCevapEkle", "AdminSoruPaneli");
         }
-       [HttpGet]
+       
         public ActionResult DogruCevapEkle()
         {
-        //  var Id = Convert.ToInt32(Session["deneme"]);
+             var Id = Convert.ToInt32(Session["deneme"]);
 
-          var val = SoruManager.GetSoruById(1002);
+         
+            var val = SoruManager.GetSoruById(Id);
            
             return View(val);
         }
 
         [HttpPost]
-        public ActionResult DogruCevapEkle(int Id,string A, string B, string C, string D, IEnumerable<HttpPostedFileBase> medya)
+        public ActionResult DogruCevapEkle(Sorular soru)
         {
-            try { 
-            var galeri = GaleriManager.GetGaleriById(Id);
 
-            var soru = SoruManager.SoruEkle(Id, A, B, C, D);
+       var val=     SoruManager.SoruGuncelle(soru);
+
+            var galeriId = SoruManager.GetSoruById(val.Id);
+            var galeri = GaleriManager.GetGaleriById(galeriId.Galeri);
+            Session["denemem"] = galeri.Id;
+
+            return RedirectToAction("ResimEkle", "AdminSoruPaneli");
+        }
+     /*   [HttpPost]
+        public ActionResult DogruCevapEkle( int Idx,string A, string B, string C, string D)
+        {
            
-          
-foreach(var file in medya)
-                {
+            
+                var galeriId = SoruManager.GetSoruById(Idx);
+            var galeri = GaleriManager.GetGaleriById(galeriId.Galeri);
 
-              
-         
-            if (file != null && file.ContentLength > 0)
-            {
-                if (file.FileName.EndsWith("jpeg") || file.FileName.EndsWith("png"))
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/app_assets/Upload/Fotograf"), fileName);
-                            file.SaveAs(path);
-                    galeri.PicUrl = path;
-                }
-                else
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/app_assets/Upload/Video"), fileName);
-                            file.SaveAs(path);
-                    galeri.PicUrl = path;
-                }
+            var soru = SoruManager.SoruEkle(Idx, A, B, C, D);
+                Session["denemem"] = galeriId.Galeri;
+                return RedirectToAction("ResimEkle", "AdminSoruPaneli");
+                }*/
+        public ActionResult ResimEkle()
+        {
+           var Id=Convert.ToInt32(Session["denemem"]);
+            var val = GaleriManager.GetGaleriById(Id);
+            return View(val);
+        }
+        [HttpPost]
+        public ActionResult ResimEkle(Galeri galeri)
+        {
+        
+            var file = Request.Files["PicUrl"];
+            var x = GaleriManager.GaleriEkle(galeri);
+            string folderPath;
+            if (x.PicUrl.EndsWith("") || x.PicUrl.EndsWith("")) {
+                folderPath = Server.MapPath("~/app-assets/Upload/Fotograf");
             }
-                  }
-                SoruViewModel soruView= new SoruViewModel();
-            soruView.sorular = soru;
-            soruView.galeri = galeri;
-            SoruManager.SoruResimliEkle(soruView);
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-            return View();
+            folderPath = Server.MapPath("~/app-assets/Upload/Video");
+
+            // Dosyanın hedef klasöre kaydedilmesi
+            string fileName = Path.GetFileName(file.FileName);
+            string filePath = Path.Combine(folderPath, fileName);
+            file.SaveAs(filePath);
+        
+        /* var Id = Convert.ToInt32(Session["denemem"]);
+         var val = GaleriManager.GetGaleriById(Id);
+         val.PicUrl = filePath;*/
+
+        
+            return RedirectToAction("Index", "AdminSoruPaneli");
         }
         public ActionResult SoruSil(int? id)
         {
@@ -116,11 +129,11 @@ foreach(var file in medya)
             return View(val);
         }
        [HttpPost]
-        public ActionResult SoruGuncelle(SoruViewModel form,HttpPostedFileBase file)
+        public ActionResult SoruyuGuncelle(Sorular  form)
         {
-            SoruManager.SoruGuncelle(form.sorular);
-            SoruManager.AddUpdate(form.sorular);
-            GaleriManager.GaleriGüncelle(form.galeri);
+            SoruManager.SoruGuncelle(form);
+            SoruManager.AddUpdate(form);
+
             return RedirectToAction("Index");
 
         }

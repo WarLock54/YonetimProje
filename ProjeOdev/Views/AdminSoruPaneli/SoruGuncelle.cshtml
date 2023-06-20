@@ -17,32 +17,39 @@
                     <div class="col-md-6 col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h2>Falsifying</h2>
-                                <h4>  @Model.SoruAciklamasi</h4>
-                              
-                                    <span style="display:none" id="Id">@Model.Id</span>
+                                <form method="post" action="~/AdminSoruPaneli/SoruyuGuncelle" enctype="multipart/form-data">
+                                    <h2>Falsifying</h2>
+
+
+                                   @Html.HiddenFor(model=>model.Id)
+                                    <div class="mb-1">
+                                        <label class="form-label">
+                                            Question Description
+                                        </label>
+                                        @Html.TextBoxFor(model => model.SoruAciklamasi, new { @class = "form-control", id = "SoruAciklamasi" })
+                                    </div>
                                     <div class="mb-1">
                                         <label class="form-label">A</label>
-                                        <input type="radio" name="selectedOption" id="optionA" />
+
                                         @Html.TextBoxFor(model => model.A, new { @class = "form-control", id = "valA" })
 
                                     </div>
                                     <div class="mb-1">
                                         <label class="form-label">B</label>
-                                        <input type="radio" name="selectedOption" id="optionB" />
+
                                         @Html.TextBoxFor(model => model.B, new { @class = "form-control", id = "valB" })
                                     </div>
                                     <div class="mb-1">
                                         <label class="form-label">C</label>
-                                        <input type="radio" name="selectedOption" id="optionC" />
+
                                         @Html.TextBoxFor(model => model.C, new { @class = "form-control", id = "valC" })
                                     </div>
                                     <div class="mb-1">
                                         <label class="form-label">D</label>
-                                        <input type="radio" name="selectedOption" id="optionD" />
+
                                         @Html.TextBoxFor(model => model.D, new { @class = "form-control", id = "valD" })
                                     </div>
-                                    
+
                                     <button type="submit" class="btn btn-warning">UPDATE THE QUESTİON</button>
                                 </form>
 

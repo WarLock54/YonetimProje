@@ -49,7 +49,7 @@ namespace ProjeOdev.Models
                 return true;
             }
         }
-        public static Galeri GetGaleriById(int id)
+        public static Galeri GetGaleriById(int? id)
         {
                 using(var db = new Entities())
             {

@@ -1,0 +1,46 @@
+﻿@model ProjeOdev.Yonetim.Galeri
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
+
+        <div class="content-body">
+            <!-- Validation -->
+            <section class="bs-validation">
+                <div class="row">
+                    <!-- Bootstrap Validation -->
+                    <div class="col-md-6 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2>İmage Adding</h2>
+                                
+                                <form method="post" enctype="multipart/form-data">
+                                    <span style="display:none" id="Id">@Model.Id</span>
+                            
+                                    <div class="mb-1">
+                                        <label class="form-label">Question Media</label>
+                                        <input class="form-control" type="file"  name="PicUrl" multiple />
+                                    </div>
+                                    <button type="submit" class="btn btn-warning">Add Image</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Bootstrap Validation -->
+                    <!-- jQuery Validation -->
+                    <!-- /jQuery Validation -->
+                </div>
+            </section>
+            <!-- /Validation -->
+
+        </div>
+    </div>
+</div>

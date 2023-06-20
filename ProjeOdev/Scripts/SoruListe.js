@@ -1,25 +1,24 @@
-﻿
-var assetListVM;
-$(function (){
+﻿var assetListVM;
+$(function () {
     assetListVM = {
         dt: null,
         init: function () {
-           
             window.dt = $('#datatable').DataTable({
                 "processing": true,
                 "serverSide": true,
                 "ajax": {
-                    url: "/AdminSoruPaneli/GetSoru",             
+                    url: '/AdminSoruPaneli/GetSoru',
+
                 },
                 "columns": [
                     { "title": "SıraNo", "data": "Id" },
-                    { "title": "SoruAciklamasi", "data": "SoruAciklamasi", searchable: true },
-                    { "title": "a", "data": "A", searchable: true },
+                    { "title": "Baslik", "data": "SoruAciklamasi", searchable: true },
+                    { "title": "TextEditor", "data": "A", searchable: true },
                     {
                         "title": "Eylemler",
                         "render": function (data, type, row) {
-                            const inner = `<a href="/AdminSoruPaneli/SoruGuncelle?id=${row.Id}" ><button class="btn btn-info">Show Display</button></a>
-            
+                            const inner = `<a href="/AdminSoruPaneli/SoruGuncelle?id=${row.Id}" class="on-default edit-row" title="Düzenle"><button class="btn btn-info">Düzenle</button></a>
+                                    
 `;
                             return inner;
                         }
@@ -31,7 +30,7 @@ $(function (){
                     });
                 },
                 "columnDefs": [{
-                    'targets': [1,2,3],
+                    'targets': [1, 2],
                     "createdCell": function (td, cellData, rowData, row, col) {
                         $(td).attr('title', cellData);
                         /*columna tekrardan bak...*/
@@ -48,4 +47,5 @@ $(function (){
     }
     assetListVM.init();
 });
+
 
